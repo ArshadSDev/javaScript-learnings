@@ -36,7 +36,7 @@ function addOnClick(){
     });
 
     console.log(TodoList);//
-    console.log(TodoList);//
+    console.log('version 2');//
     inputElem.value='';
     inputDateElem.value='';
     finalListAdding();
