@@ -1,16 +1,27 @@
-const TodoList=[{name:'cooking',date:'12-03-2003'},{name:'washing',date:'12-05-2025'}];
+const TodoList=[];
 
 function finalListAdding(){
     let finalresult='';
-    for( let i=0;i<TodoList.length ;i++){
-        const todoObject=TodoList[i];
+
+    TodoList.forEach((todoObject,index) => {
+        // const todoObject=TodoList[i];
         const {name,date}=todoObject;
         const html=`
-         <div>${name}</div> 
+        <div>${name}</div> 
         <div>${date}</div> 
-        <button onclick="TodoList.splice(${i},1) ; finalListAdding()" class="delete-button">Delete</button>`;
+        <button onclick="TodoList.splice(${index},1) ; finalListAdding()" class="delete-button">Delete</button>`;
         finalresult+=html;
-    }   
+    })
+
+    // for( let i=0;i<TodoList.length ;i++){
+    //     const todoObject=TodoList[i];
+    //     const {name,date}=todoObject;
+    //     const html=`
+    //      <div>${name}</div> 
+    //     <div>${date}</div> 
+    //     <button onclick="TodoList.splice(${i},1) ; finalListAdding()" class="delete-button">Delete</button>`;
+    //     finalresult+=html;
+    // }   
     //console.log(finalresult);
     document.querySelector('.ListValues').innerHTML=finalresult;
 }
@@ -35,8 +46,8 @@ function addOnClick(){
         date:inputDate
     });
 
-    console.log(TodoList);//
-    console.log('version 2');//
+    
+    
     inputElem.value='';
     inputDateElem.value='';
     finalListAdding();
