@@ -5,9 +5,14 @@
     </head>
     <body>
         
+        <button onclick="" class="js-button-click">Click</button>
 
         <script>
-                function greeting(){
+
+            const buttonElement= document.querySelector('.js-button-click');
+            buttonElement.addEventListener('click',()=>{console.log('clicked')})
+
+               /* function greeting(){
                     console.log('hrllo');
                 }
                 greeting();
@@ -30,7 +35,7 @@
                     console.log(val);
                 })
 
-                
+                */
 
         </script>
     </body>
