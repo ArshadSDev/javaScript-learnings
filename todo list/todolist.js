@@ -9,9 +9,11 @@ function finalListAdding(){
         const html=`
         <div>${name}</div> 
         <div>${date}</div> 
-        <button onclick="TodoList.splice(${index},1) ; finalListAdding()" class="delete-button">Delete</button>`;
+        <button class="delete-button js-delete-button ">Delete</button>`;
         finalresult+=html;
     })
+
+
 
     // for( let i=0;i<TodoList.length ;i++){
     //     const todoObject=TodoList[i];
@@ -24,6 +26,15 @@ function finalListAdding(){
     // }   
     //console.log(finalresult);
     document.querySelector('.ListValues').innerHTML=finalresult;
+
+    document.querySelectorAll('.js-delete-button')
+    .forEach((deleteButtonVal,index)=>{
+        deleteButtonVal.addEventListener('click',()=>{
+            TodoList.splice(index,1) ;
+            finalListAdding()
+        })
+    })
+
 }
 
 function handleEnter(event){
@@ -34,7 +45,9 @@ function handleEnter(event){
 }
 
 
-
+document.querySelector('.js-add-button').addEventListener('click',()=>{
+    addOnClick()
+})
 
 function addOnClick(){
     const inputElem = document.querySelector('.js-addBox');
